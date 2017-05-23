@@ -52,6 +52,11 @@ int checkThrIsKill(pthread_t thr);
 
 
 
+@property (weak, nonatomic) IBOutlet UITextField *userNameee;
+@property (weak, nonatomic) IBOutlet UITextField *computerIP;
+- (IBAction)removeStarView:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIView *setarView;
+
 
 
 @property (weak) IBOutlet UITextView *textFild;
@@ -106,13 +111,15 @@ int checkThrIsKill(pthread_t thr);
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self yyy];
+   
     
     
     _contentNS = @"你好" ;
     
     
-    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    self.computerIP.text = [userDefault objectForKey:@"computerID"];
+    self.userNameee.text = [userDefault objectForKey:@"userName"];
    
     
     
@@ -197,6 +204,15 @@ int m = 0;
 
 -(void)yyy
 {
+   
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *switchStatu = [userDefault objectForKey:@"computerID"];
+    int IP = [switchStatu intValue];
+    
+    NSLog(@"IP= [ %d ]",IP);
+    
+    
     printf("开始socket\n");
     /* 创建TCP连接的Socket套接字 */
     socketCon = socket(AF_INET, SOCK_STREAM, 0);
@@ -219,7 +235,7 @@ int m = 0;
     bzero(&server_addr,sizeof(struct sockaddr_in));
     server_addr.sin_family=AF_INET;
     server_addr.sin_addr.s_addr=inet_addr(hostip); /* 这里地址使用全0，即所有 */
-    server_addr.sin_port=htons(8080);
+    server_addr.sin_port=htons(IP);
     /* 连接服务器 */
     int res_con = connect(socketCon,(struct sockaddr *)(&server_addr),sizeof(struct sockaddr));
     if(res_con != 0){
@@ -236,7 +252,7 @@ int m = 0;
     //检测接受服务器数据线程是否被杀死
     //        sleep(2.0);
     
-    char userStr[] = "客服端1}";
+    char userStr[] = "客服端";
     // 可以录入用户操作选项，并进行相应操作
     //        scanf("%s",userStr);
     //        if(strcmp(userStr,"q") == 0){
@@ -320,9 +336,10 @@ int checkThrIsKill(pthread_t thr){
 
 - (IBAction)sendButton:(UIButton *)sender {
     
-    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *switchStatu = [userDefault objectForKey:@"userName"];
    
-    NSDictionary *dict =@{@"userName":@"客服端",
+    NSDictionary *dict =@{@"userName":[NSString stringWithFormat:@"%@:",switchStatu],
                           @"content": self.textFild.text,
                           @"time": [self getNowTime]};
     
@@ -381,7 +398,7 @@ int checkThrIsKill(pthread_t thr){
 {
     NSString *cellHStr = self.cellHightArray[indexPath.row];
     NSLog(@"cellHStr= [ %@ ]",cellHStr);
-    return [cellHStr floatValue]+30+10;
+    return [cellHStr floatValue]+30+10+10;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -400,6 +417,97 @@ int checkThrIsKill(pthread_t thr){
     formatter.dateFormat = @"HH:mm:ss  MM.dd.yyyy";
     NSString *dateStr = [formatter stringFromDate:date];
     return  dateStr;
+    
+}
+
+
+
+- (IBAction)removeStarView:(UIButton *)sender {
+    
+    if (!(self.userNameee.text.length>1)) {
+        [self topPromptViewWithPromptContent:@"请输入两位以上的名字...."];
+        return;
+    }
+    
+    if (!(self.computerIP.text.length>3)) {
+        [self topPromptViewWithPromptContent:@"请输入4位以上的链接地址...."];
+        return;
+    }
+    
+    
+    //获取userDefault单例
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.userNameee.text forKey:@"userName"];
+    [userDefaults setObject:self.computerIP.text forKey:@"computerID"];
+    //同步到list文件中
+    [userDefaults synchronize];
+
+    
+    
+    
+    [self yyy];
+    [self.setarView removeFromSuperview];
+    
+    
+    
+}
+
+#define KScreenHeight ([UIScreen mainScreen].bounds.size.height)
+
+-(void)topPromptViewWithPromptContent:(NSString *)str
+{
+    
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    UIView *dataView = [[UIView alloc]initWithFrame:CGRectMake(0,- 60, KScreenHeight, 60)];
+    dataView.backgroundColor = [UIColor whiteColor];
+    dataView.layer.shadowColor = [UIColor blackColor].CGColor;
+    dataView.layer.shadowOpacity = 0.2;
+    dataView.layer.shadowOffset = CGSizeMake(5, 5);
+    UILabel *dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0, KScreenHeight, 60)];
+    dataLabel.text = str;
+    dataLabel.font = [UIFont boldSystemFontOfSize:14];
+    [dataView addSubview:dataLabel];
+    [[UIApplication sharedApplication].keyWindow addSubview:dataView];
+    
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        dataView.frame = CGRectMake(0,10, KScreenHeight, 60);
+        dataLabel.frame = CGRectMake(10,0, KScreenHeight, 60);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.15 animations:^{
+            dataView.frame = CGRectMake(0,-5, KScreenHeight, 60);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^{
+                dataView.frame = CGRectMake(0,0, KScreenHeight, 60);
+            } completion:^(BOOL finished) {
+                
+                [UIView animateWithDuration:3.0 animations:^{
+                    
+                    dataView.alpha = 1.1;
+                    
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:0.15 animations:^{
+                        
+                        dataView.frame = CGRectMake(0,-60, KScreenHeight, 60);
+                        dataLabel.frame = CGRectMake(10,0, KScreenHeight, 60);
+                        
+                    } completion:^(BOOL finished) {
+                        [dataView removeFromSuperview];
+                        [dataLabel removeFromSuperview];
+                        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+                        
+                        
+                        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+                        
+                    }];
+                }];
+            }];
+            
+            
+        }];
+    }];
     
 }
 
