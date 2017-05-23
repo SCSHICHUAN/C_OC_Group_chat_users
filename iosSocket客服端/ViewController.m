@@ -16,7 +16,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <pthread.h>
-
+#include <netdb.h> //把域名专换为IP地址
 
 #import "TableViewCell.h"
 
@@ -205,12 +205,21 @@ int m = 0;
         printf("创建TCP连接套接字失败\n");
         exit(-1);
     }
+    
+
+    struct hostent* host;
+    host = gethostbyname("0.tcp.ngrok.io");
+    const char *hostip = inet_ntoa(*((struct in_addr*)host->h_addr));//把域名专换为IP地址，
+    
+    
+    
+    
     /* 填充客户端端口地址信息，以便下面使用此地址和端口监听 */
     struct sockaddr_in server_addr;
     bzero(&server_addr,sizeof(struct sockaddr_in));
     server_addr.sin_family=AF_INET;
-    server_addr.sin_addr.s_addr=inet_addr("192.168.0.182"); /* 这里地址使用全0，即所有 */
-    server_addr.sin_port=htons(8081);
+    server_addr.sin_addr.s_addr=inet_addr(hostip); /* 这里地址使用全0，即所有 */
+    server_addr.sin_port=htons(8080);
     /* 连接服务器 */
     int res_con = connect(socketCon,(struct sockaddr *)(&server_addr),sizeof(struct sockaddr));
     if(res_con != 0){
