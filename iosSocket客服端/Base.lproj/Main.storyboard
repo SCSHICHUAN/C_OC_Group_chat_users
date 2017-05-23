@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="poV-nT-6ux">
+                                <rect key="frame" x="0.0" y="20" width="375" height="346"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="你可以开始聊天了！" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="twn-x1-Lsf">
+                                <rect key="frame" x="9" y="369" width="253" height="38"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="2KM-Mz-8P4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pj-ql-bP0">
+                                <rect key="frame" x="270" y="369" width="97" height="38"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="CcM-5Q-7UY"/>
+                                    <constraint firstAttribute="height" constant="38" id="GJb-AV-oOX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="YBS-ui-bmT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="发送">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xTs-ai-UFv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="poV-nT-6ux" secondAttribute="trailing" id="2Fg-oM-PAe"/>
+                            <constraint firstItem="twn-x1-Lsf" firstAttribute="top" secondItem="poV-nT-6ux" secondAttribute="bottom" constant="3" id="5vz-zu-Eeq"/>
+                            <constraint firstItem="twn-x1-Lsf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="EIG-UG-XgH"/>
+                            <constraint firstItem="poV-nT-6ux" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="L3b-AC-agn"/>
+                            <constraint firstItem="2Pj-ql-bP0" firstAttribute="leading" secondItem="twn-x1-Lsf" secondAttribute="trailing" constant="8" id="TNm-5y-6Q1"/>
+                            <constraint firstItem="poV-nT-6ux" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aL8-Mg-9TM"/>
+                            <constraint firstAttribute="trailing" secondItem="2Pj-ql-bP0" secondAttribute="trailing" constant="8" id="aSh-W1-jDq"/>
+                            <constraint firstItem="2Pj-ql-bP0" firstAttribute="top" secondItem="poV-nT-6ux" secondAttribute="bottom" constant="3" id="gjA-hI-aIp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="twn-x1-Lsf" secondAttribute="bottom" constant="260" id="yos-iZ-z1k"/>
+                            <constraint firstItem="2Pj-ql-bP0" firstAttribute="leading" secondItem="twn-x1-Lsf" secondAttribute="trailing" constant="8" id="z46-Os-BtP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="poV-nT-6ux" id="Kp7-Jf-aMw"/>
+                        <outlet property="textFild" destination="twn-x1-Lsf" id="IIq-jh-PLI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

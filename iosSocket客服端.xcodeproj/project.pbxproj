@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E362DD821ED2EDC900D7C0EF /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E362DD801ED2EDC900D7C0EF /* TableViewCell.m */; };
+		E362DD831ED2EDC900D7C0EF /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E362DD811ED2EDC900D7C0EF /* TableViewCell.xib */; };
 		E39FC4971ECEF57200E94143 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E39FC4961ECEF57200E94143 /* main.m */; };
 		E39FC49A1ECEF57200E94143 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E39FC4991ECEF57200E94143 /* AppDelegate.m */; };
 		E39FC49D1ECEF57200E94143 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39FC49C1ECEF57200E94143 /* ViewController.m */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E362DD7F1ED2EDC900D7C0EF /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		E362DD801ED2EDC900D7C0EF /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		E362DD811ED2EDC900D7C0EF /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		E39FC4921ECEF57200E94143 /* iosSocket客服端.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iosSocket客服端.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39FC4961ECEF57200E94143 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E39FC4981ECEF57200E94143 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 				E39FC4A31ECEF57200E94143 /* LaunchScreen.storyboard */,
 				E39FC4A61ECEF57200E94143 /* Info.plist */,
 				E39FC4951ECEF57200E94143 /* Supporting Files */,
+				E362DD7F1ED2EDC900D7C0EF /* TableViewCell.h */,
+				E362DD801ED2EDC900D7C0EF /* TableViewCell.m */,
+				E362DD811ED2EDC900D7C0EF /* TableViewCell.xib */,
 			);
 			path = "iosSocket客服端";
 			sourceTree = "<group>";
@@ -110,7 +118,7 @@
 				TargetAttributes = {
 					E39FC4911ECEF57200E94143 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 3JXF3ZZ9G5;
+						DevelopmentTeam = 84JV8F36TK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -139,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39FC4A51ECEF57200E94143 /* LaunchScreen.storyboard in Resources */,
+				E362DD831ED2EDC900D7C0EF /* TableViewCell.xib in Resources */,
 				E39FC4A21ECEF57200E94143 /* Assets.xcassets in Resources */,
 				E39FC4A01ECEF57200E94143 /* Main.storyboard in Resources */,
 			);
@@ -152,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39FC49D1ECEF57200E94143 /* ViewController.m in Sources */,
+				E362DD821ED2EDC900D7C0EF /* TableViewCell.m in Sources */,
 				E39FC49A1ECEF57200E94143 /* AppDelegate.m in Sources */,
 				E39FC4971ECEF57200E94143 /* main.m in Sources */,
 			);
@@ -275,8 +285,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3JXF3ZZ9G5;
+				DEVELOPMENT_TEAM = 84JV8F36TK;
 				INFOPLIST_FILE = "iosSocket客服端/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SHICHUAN.iosSocket---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,8 +298,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3JXF3ZZ9G5;
+				DEVELOPMENT_TEAM = 84JV8F36TK;
 				INFOPLIST_FILE = "iosSocket客服端/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SHICHUAN.iosSocket---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -314,6 +326,7 @@
 				E39FC4AB1ECEF57200E94143 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
