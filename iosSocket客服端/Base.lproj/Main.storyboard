@@ -53,8 +53,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmX-ya-PkI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用群聊客服端" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLH-nl-eNo">
-                                        <rect key="frame" x="89" y="17" width="196" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用群聊客服端" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLH-nl-eNo">
+                                        <rect key="frame" x="0.0" y="17" width="375" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ZwY-sK-0tT"/>
                                         </constraints>
@@ -131,7 +131,7 @@
                                     <constraint firstItem="C7V-yd-8O6" firstAttribute="leading" secondItem="SmX-ya-PkI" secondAttribute="leading" constant="14" id="9gK-BR-Ws7"/>
                                     <constraint firstItem="hwQ-q7-K2B" firstAttribute="leading" secondItem="SmX-ya-PkI" secondAttribute="leading" constant="14" id="BvB-aA-Zjz"/>
                                     <constraint firstItem="hKo-Yn-qwG" firstAttribute="leading" secondItem="SmX-ya-PkI" secondAttribute="leading" constant="8" id="NaY-bK-eOA"/>
-                                    <constraint firstAttribute="trailing" secondItem="bLH-nl-eNo" secondAttribute="trailing" constant="90" id="OWK-7z-On1"/>
+                                    <constraint firstAttribute="trailing" secondItem="bLH-nl-eNo" secondAttribute="trailing" id="OWK-7z-On1"/>
                                     <constraint firstAttribute="trailing" secondItem="hKo-Yn-qwG" secondAttribute="trailing" constant="8" id="P9Q-Z1-yJ5"/>
                                     <constraint firstAttribute="trailing" secondItem="7Rp-dH-ZXf" secondAttribute="trailing" constant="62" id="Pmj-5T-Vdn"/>
                                     <constraint firstAttribute="bottom" secondItem="hKo-Yn-qwG" secondAttribute="bottom" constant="19" id="QWL-gP-kLc"/>
@@ -139,7 +139,7 @@
                                     <constraint firstItem="PY9-bj-qZY" firstAttribute="top" secondItem="SmX-ya-PkI" secondAttribute="top" constant="57" id="Y7e-e8-DN4"/>
                                     <constraint firstItem="C7V-yd-8O6" firstAttribute="top" secondItem="hwQ-q7-K2B" secondAttribute="bottom" constant="23" id="cRu-51-mnI"/>
                                     <constraint firstAttribute="trailing" secondItem="PY9-bj-qZY" secondAttribute="trailing" constant="8" id="dYQ-J2-YkB"/>
-                                    <constraint firstItem="bLH-nl-eNo" firstAttribute="leading" secondItem="SmX-ya-PkI" secondAttribute="leading" constant="89" id="eqD-SG-tnq"/>
+                                    <constraint firstItem="bLH-nl-eNo" firstAttribute="leading" secondItem="SmX-ya-PkI" secondAttribute="leading" id="eqD-SG-tnq"/>
                                     <constraint firstItem="hwQ-q7-K2B" firstAttribute="top" secondItem="bLH-nl-eNo" secondAttribute="bottom" constant="23" id="f2x-b9-I3E"/>
                                     <constraint firstItem="ALP-Vd-lWa" firstAttribute="leading" secondItem="SmX-ya-PkI" secondAttribute="leading" constant="99" id="fgv-9I-ttX"/>
                                     <constraint firstItem="ALP-Vd-lWa" firstAttribute="top" secondItem="7Rp-dH-ZXf" secondAttribute="bottom" constant="13" id="h33-bT-qMj"/>
